@@ -8,32 +8,42 @@ public class UnitConverter {
 //Length Conversion
 class LengthConverter {
   private static String heca;
-  LengthConverter(String measurements) {
-    heca = measurements;
+  LengthConverter(String lengMeasurements) {
+    heca = lengMeasurements;
   }
   
   public double LengthConversion(double value) {
-    double answ = 0;
+    double lengAnsw = 0;
     switch (heca) {
       case "KilometerToMeter":
-        answ = value * 1000;
+        lengAnsw = value * 1000;
       break;
       case "MeterToCentimeter":
-        answ = value * 100;
+        lengAnsw = value * 100;
       break;
       case "CentimeterToMillimeter":
-        answ = value * 10;
+        lengAnsw = value * 10;
       break;
       case "MillimeterToCentimeter":
-        answ = value / 10;
+        lengAnsw = value / 10;
       break;
       case "CentimeterToMeter":
-        answ = value / 100;
+        lengAnsw = value / 100;
       break;
       case "MeterKilometer":
-        answ = value / 1000;
+        lengAnsw = value / 1000;
       break;
     }
-    return answ;
+    return lengAnsw;
+  }
+}
+class TemperatureConverter {
+  private static String heca;
+  TemperatureConverter(String tempmeasurements) {
+    heca = tempmeasurements;
+  }
+  
+  public double LengthConversion(double value) {
+    double tempAnsw = 0;
   }
 }
