@@ -1,1 +1,3 @@
-<img width=400 src="https://github-readme-stats.vercel.app/api/top-langs/?username=Koronashi&theme=vue-dark&show_icons=true&hide_border=true&layout=compact"/>
+<p align="center">
+<a href="https://github.com/Koronashi"><img src="https://github-readme-stats-q2ta.vercel.app/api/top-langs/?username=Koronashi&layout=compact&theme=tokyonight&cache_seconds=3200"></a>
+</p>
