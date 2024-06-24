@@ -85,13 +85,13 @@ class About_Number {
           a = About_Number.indexAt(this.number, 1);
           eng = lib_text2[a - 2];
           a = About_Number.indexAt(this.number, 0);
-          eng = eng + lib_text1[a];
+          eng = eng +"-"+lib_text1[a];
         }
       break;
       case 3:
         a = About_Number.indexAt(this.number, 2);
         eng = lib_text1[a] + " " + place_value[0] + " ";
-        if (!(About_Number.indexAt(this.number, 1) == 0 || About_Number.indexAt(this.number, 0) == 0))
+        if (!(About_Number.indexAt(this.number, 1) == 0 && About_Number.indexAt(this.number, 0) == 0))
         if (About_Number.indexTo(this.number, 1)<=10) {
           a = About_Number.indexAt(this.number, 1);
           eng = eng + lib_text1[a];
@@ -102,10 +102,39 @@ class About_Number {
           a = About_Number.indexAt(this.number, 1);
           eng = eng + lib_text2[a - 2];
           a = About_Number.indexAt(this.number, 0);
-          eng = eng + lib_text1[a];
+          eng = eng + "-" + lib_text1[a];
         }
+      break;
+      case 4:
+        a = About_Number.indexAt(this.number, 3);
+        eng = lib_text1[a] + " " + place_value[1] + " ";;
+        if (this.number>1000) {
+          a = About_Number.indexAt(this.number, 2);
+          eng = eng + lib_text1[a] + " " + place_value[0] + " ";
+          if (!(About_Number.indexAt(this.number, 1) == 0 && About_Number.indexAt(this.number, 0) == 0))
+          if (About_Number.indexTo(this.number, 1)<=10) {
+            a = About_Number.indexAt(this.number, 1);
+            eng = eng + lib_text1[a];
+          } else if (About_Number.indexTo(this.number, 1)<20) {
+            a = About_Number.indexTo(this.number, 1);
+            eng = eng + lib_text1[a];
+          } else {
+            a = About_Number.indexAt(this.number, 1);
+            eng = eng + lib_text2[a - 2];
+            a = About_Number.indexAt(this.number, 0);
+            eng = eng + "-" + lib_text1[a];
+          }
+        }
+      break;
+      case 5:
+        //XX Thousand
+      break;
+      case 6:
+        //XXX Thousand
       break;
     }
     return eng;
   }
+  
+  
 }
