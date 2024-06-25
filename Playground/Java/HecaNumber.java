@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class HecaNumber {
   public static void main(String[] args) {
-    //Debugging
+    Scanner scan = new Scanner(System.in);
+    //Test
     System.out.println("Compile Successful: ");
-    /*Scanner scan = new Scanner(System.in);*/
-    for (int i = 100; i<200; i++) {
+    for (int i = 0; i<=10; i++) {
       About_Number md = new About_Number(i);
-      System.out.println(i + ":" + md.CEnglish());
+      System.out.println(md.CRoman());
     }
   }
 }
@@ -21,14 +21,9 @@ class About_Number {
   private static int indexAt(int number, int index) {
     return (int)(number/Math.pow(10,index)) % 10;
   }
-  public static int indexTo(int number, int index_To) {
+  private static int indexTo(int number, int index_To) {
     double i = (number/Math.pow(10,index_To)) % 10;
-    double j = i / Math.pow(10, -index_To);
-    if (j == 10.999999999999996) {
-      j = 11.0;
-    } else if (j == 11.999999999999993) {
-      j = 12.0;
-    }
+    double j = Math.round(i / Math.pow(10, -index_To));
     return (int)j;
   }
   boolean perfect_number() {
@@ -71,64 +66,4 @@ class About_Number {
     }
     return _results;
   }
-  
-  String CEnglish() {
-    String lib_text1[] = {"zero","one", "two", "three", "four", "five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
-    String lib_text2[] = {"ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
-    String place_value[] = {"hundred","thousand"};
-    String eng = "";
-    int a;
-    
-    switch (String.valueOf(this.number).length()) {
-      case 1:
-        eng = lib_text1[this.number];
-      break;
-      case 2:
-        if (this.number<20) {
-          eng = lib_text1[this.number];
-        } else if (About_Number.indexAt(this.number, 0) == 0) {
-          eng = lib_text2[(this.number - 20)/10];
-        } else {
-          a = About_Number.indexAt(this.number, 1);
-          eng = lib_text2[a - 2];
-          a = About_Number.indexAt(this.number, 0);
-          eng = eng +"-"+lib_text1[a];
-        }
-      break;
-      case 3:
-        a = About_Number.indexAt(this.number, 2);
-        eng = lib_text1[a] + " " + place_value[0] + " ";
-        if (!(About_Number.indexAt(this.number, 1) == 0 && About_Number.indexAt(this.number, 0) == 0)) {
-          if (this.number<110) {
-            eng = eng + lib_text1[About_Number.indexAt(this.number, 0)];
-          } else if (About_Number.indexAt(this.number, 0) == 0) {
-            a = About_Number.indexTo(this.number, 1);
-            eng = eng + lib_text2[(a - 10)/10];
-          } else if (About_Number.indexTo(this.number, 1)<20) {
-            a = About_Number.indexTo(this.number, 1);
-            eng = eng + String.valueOf(this.number);
-          } else {
-            a = About_Number.indexAt(this.number, 1);
-            eng = eng + lib_text2[a - 1];
-            a = About_Number.indexAt(this.number, 0);
-            eng = eng +"-"+lib_text1[a];
-          }
-        }
-        a = 0;
-      break;
-      case 4:
-        a = About_Number.indexAt(this.number, 3);
-        eng = lib_text1[a] + " " + place_value[1] + " ";
-      break;
-      case 5:
-        //XX Thousand
-      break;
-      case 6:
-        //XXX Thousand
-      break;
-    }
-    return eng;
-  }
-  
-  
 }
